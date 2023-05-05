@@ -1,0 +1,34 @@
+.footer {
+    background: var(--body-color);
+    overflow: hidden;
+    &__wrapper{
+      padding: 50px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+  
+      .footer_item {
+        width: calc(100% / 3);
+        align-self: center;
+        .footer_by {
+          margin: 0;
+          color: var(--text-color);
+          text-align: end;
+        }
+      }
+      @media (max-width: 700px) {
+        flex-direction: column;
+        row-gap: 1rem;
+        .footer_item {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          .footer_by {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  
