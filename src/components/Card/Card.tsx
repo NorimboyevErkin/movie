@@ -9,24 +9,18 @@ type CardProps = {
   item: CardListType;
 };
 function Card({ item }: CardProps) {
-  console.log(item, "card");
   return (
+    <Link href={`/movies/${item.id}`}>
     <div className={classes.card}>
       {!item.isFree && (
         <div className={classes.card__rating}>
-          {/* <HiStar /> */}
-          <h4 className={classes.card__rating}>Bullik</h4>
+          <h4 className={classes.card__rating}>Pullik</h4>
         </div>
       )}
 
       <div className={classes.card__image}>
         <Image           src={item.poster}
           alt={item.title} width={180} height={240}/>
-        {/* <img
-          src={item.poster}
-          alt={item.title}
-          style={{ height: "100%", width: "100%" }}
-        /> */}
       </div>
       <div className={classes.card__details}>
         <h4>{item.title}</h4>
@@ -38,6 +32,7 @@ function Card({ item }: CardProps) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
 

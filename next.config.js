@@ -4,7 +4,7 @@ const nextConfig = {
       appDir: true,
     },
     images: {
-      domains: ["files.cinerama.uz","https://image.tmdb.org"],
+      domains: ["files.cinerama.uz","image.tmdb.org"],
     },
   };
 

@@ -41,3 +41,17 @@ a {
     color-scheme: dark;
   }
 }
+
+.MuiPagination-ul .MuiButtonBase-root{
+  background:#fff;
+  color:black;
+}
+.MuiPagination-ul .Mui-selected{
+  background:var(--blue-color);
+}
+.MuiPagination-ul .Mui-selected:hover{
+  background:var(--blue-color);
+}
+.MuiPagination-ul .MuiPaginationItem-ellipsis{
+  color:#fff;
+}

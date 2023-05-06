@@ -29,13 +29,13 @@ function MovieSlider() {
         className="mySwiper"
       >
         <SwiperSlide>
-        <Image src={"https://files.cinerama.uz/images/banners/2023/05/05/81df7f99-78da-4b27-b570-21d1680e6ae5.png"} width={800} height={400} alt=""/>
+        <Image src={"https://image.tmdb.org/t/p/original/rPSJAElGxOTko1zK6uIlYnTMFxN.jpg"} width={800} height={400} alt=""/>
         </SwiperSlide>
         <SwiperSlide>
-        <Image src={"https://files.cinerama.uz/images/banners/2023/05/05/81df7f99-78da-4b27-b570-21d1680e6ae5.png"} width={800} height={400} alt=""/>
+        <Image src={"https://image.tmdb.org/t/p/original/cWDWUkIR22FSlxokhaNrT6jqX3n.jpg"} width={800} height={400} alt=""/>
         </SwiperSlide>
         <SwiperSlide>
-        <Image src={"https://files.cinerama.uz/images/banners/2023/05/05/81df7f99-78da-4b27-b570-21d1680e6ae5.png"} width={800} height={400} alt=""/>
+        <Image src={"https://image.tmdb.org/t/p/original/a2tys4sD7xzVaogPntGsT1ypVoT.jpg"} width={800} height={400} alt=""/>
         </SwiperSlide>
       </Swiper>
     </>

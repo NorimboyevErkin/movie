@@ -1,30 +1,34 @@
 "use client";
 
-// import { User } from "../types";
-import { useQuery } from "@tanstack/react-query";
 import useQueryHook from "@/hooks/useQueryHook";
-import React from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import MovieSlider from "@/components/MovieSlider";
-import Loading from "@/components/Loading";
 import Card from "@/components/Card";
 
-// async function getUsers() {
-//   const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-//   console.log(res , "res");
-
-//   return [];
-// }
+import Pagination from "@mui/material/Pagination";
+import Skeleton from "@mui/material/Skeleton";
 
 export default function Home() {
-  const { data, isLoading, isFetching, error } = useQueryHook(
-    "/movie-list?page=1&items=20"
+  const [page, setPage] = React.useState<number>(2);
+
+  const { data, isLoading, isFetching, error, refetch } = useQueryHook(
+    `/movie-list?page=${page}&items=20`
   );
 
-  const list = (data?.data?.data || {})?.movies || [];
+  useEffect(() => {
+    refetch({});
+  }, [page]);
 
-  console.log(list , "list");
-  
+  const list = (data?.data?.data || {})?.movies || [];
+  const total = (data?.data?.data || {})?.lastPage || 0;
+
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
+    setPage(page);
+  };
+
   return (
     <main
       style={{
@@ -33,24 +37,63 @@ export default function Home() {
         padding: "100px 20px 20px 20px",
       }}
     >
-      <MovieSlider />
+      <div style={{ marginBottom: "100px" }}>
+        <MovieSlider />
+      </div>
       {/* <Loading/> */}
-      {error ? (
-        <p>Oh no, there was an error</p>
-      ) : isLoading || isFetching ? (
-        <p>Loading...</p>
+      {isLoading || isFetching ? (
+        <>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: `repeat(auto-fill, minmax(200px, 1fr))`,
+              gridGap: "1.5rem",
+            }}
+          >
+            {[1, 2, 3, 4, 5].map((item) => (
+              <Skeleton
+                key={item}
+                animation="wave"
+                variant="rectangular"
+                width={180}
+                height={270}
+                sx={{ bgcolor: "grey.900" }}
+              />
+            ))}
+          </div>
+        </>
       ) : data ? (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: `repeat(auto-fill, minmax(200px, 1fr))`,
-            gridGap: "1rem"
-          }}
-        >
-          {list?.map((user: any , key:number) => (
-            <Card item={user}  key={key}/>
-          ))}
-        </div>
+        <>
+          <h1>All Movie</h1>
+          <br />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: `repeat(auto-fill, minmax(200px, 1fr))`,
+              gridGap: "1.5rem",
+            }}
+          >
+            {list?.map((user: any, key: number) => (
+              <Card item={user} key={key} />
+            ))}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              margin: "3rem 0",
+            }}
+          >
+            <Pagination
+              variant="outlined"
+              shape="rounded"
+              color="primary"
+              count={total}
+              page={page}
+              onChange={handleChangeRowsPerPage}
+            />
+          </div>
+        </>
       ) : null}
     </main>
   );
