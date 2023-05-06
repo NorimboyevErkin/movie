@@ -25,32 +25,7 @@ function Header() {
         <div className={classes.HeaderContainer}>
           <div className={classes.HeaderLeftBox}>
             <Logo />
-            {/* <div className={classes.HeaderNavbarBox}>
-              <ul
-                className={classes.MainMenu}
-                style={{
-                  fontWeight: 300,
-                }}
-              >
-                <li className={classes.activeNav}>
-                  <Link href={"/"}>Home</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>About</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Service</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Project</Link>
-                </li>
-                <li>
-                  <Link href={"/"}> Contact</Link>
-                </li>
-              </ul>
-            </div> */}
           </div>
-          {/* <Socials socialShare={socialShare} /> */}
           <SearchInput/>
           {/* <DropNav /> */}
         </div>

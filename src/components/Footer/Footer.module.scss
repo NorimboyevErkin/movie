@@ -1,6 +1,7 @@
 .footer {
     background: var(--body-color);
     overflow: hidden;
+    border-top: 1px solid #515151;
     &__wrapper{
       padding: 50px 30px;
       display: flex;
@@ -12,6 +13,7 @@
         width: calc(100% / 3);
         align-self: center;
         .footer_by {
+          font-size: .9rem;
           margin: 0;
           color: var(--text-color);
           text-align: end;

@@ -1,0 +1,61 @@
+.card{
+    width: 180px;
+    max-height: 380px;
+    margin-bottom:.2rem;
+    position: relative;
+    transition: all .3s ease;
+
+    &__rating{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0.5rem .8rem;
+        background: #ff2e4f;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    &__image{
+        width: 100%;
+    height: 270px;
+    position: relative;
+    border-radius: 0.6rem;
+    overflow: hidden;
+
+    img{
+        position: relative;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.4);
+        z-index: 1;
+    }
+    }
+
+    &__details{
+        margin-top: 10px;
+        width: 100%;
+        h4{
+            margin-bottom: 0;
+            width: 180px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    &__footer{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        padding-right: 0.5rem;
+
+        .favorite{
+            all:unset;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+    }
+}

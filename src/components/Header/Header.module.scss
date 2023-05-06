@@ -9,8 +9,10 @@
     top: 0;
     left: 0;
     right: 0;
-    background: transparent;
+    background: var(--body-color);
     padding: 10px 2rem;
+    border-bottom: 1px solid #515151;
+    z-index: 999;
     @media (max-width: 500px) {
       padding: 10px 1.5rem;
     }
@@ -22,69 +24,6 @@
     }
     .HeaderLeftBox {
       @include flexCenter();
-      .HeaderNavbarBox {
-        @media (max-width: 800px) {
-          display: none;
-        }
-        .MainMenu {
-          display: flex;
-          justify-content: flex-start;
-          flex-wrap: wrap;
-          @media (max-width: 800px) {
-            flex-direction: column;
-            padding: 0 30px 30px 30px;
-          }
-          @media (max-width: 600px) {
-            padding: 0 15px 15px 15px;
-          }
-          li {
-            margin: 0 15px;
-            position: relative;
-            a {
-              color: var(--text-color);
-              font-size: 16px;
-              font-weight: 500;
-              padding: 20px 0;
-              display: inline-block;
-              transition: color 0.3s, opacity 0.3s ease-in-out;
-              cursor: pointer;
-            }
-            &::after {
-              content: "";
-              background: var(--blue-color);
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 0;
-              height: 2px;
-            }
-            &:hover {
-              a {
-                opacity: .6;
-              }
-            }
-          }
-        }
-        .activeNav {
-          a {
-            color: var(--blue-color) !important;
-          }
-          &::after {
-            animation: toRight 0.2s 0.1s alternate both;
-          }
-        }
-        
-        @keyframes toRight {
-          0% {
-            width: 0;
-            opacity: 0;
-          }
-          100% {
-            width: 100%;
-            opacity: 1;
-          }
-        }
-      }
     }
   }
   .stickyNav {

@@ -1,11 +1,11 @@
 :root{
   --blue-color:#f7ef47;
   --body-color: #101010;
-  --heading-color: #1f1f25;
+  --heading-color: #171417FF;
   --border-color: #d4d4d4;
   --color-active-nav:#0368ff;
   --white:#fff;
-  --text-color:#c6c9d8;
+  --text-color:#f5f5f5;
 }
 
 * {
