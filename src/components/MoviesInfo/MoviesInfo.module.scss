@@ -1,0 +1,57 @@
+.movie_info {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 2rem;
+
+  &__left {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.2),
+        0 0.3rem 0.3rem rgba(0, 0, 0, 0.2), 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2),
+        0 0.7rem 0.7rem rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__right {
+    .description {
+      margin-bottom: 1rem;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      h3 {
+        font-size: 1.1rem;
+        color: hsla(0, 0%, 100%, 0.5);
+        margin-top: 0.1rem;
+      }
+    }
+
+    .rating {
+      margin-bottom: 1.5rem;
+      .age_limit {
+        padding: 0.3rem 0.5rem;
+        border-radius: 8px;
+        border: 1px solid #2d2c32;
+      }
+    }
+
+    .meta_block {
+      font-weight: 200;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+
+      .item_key {
+        margin-right: 5px;
+      }
+      .item_value {
+        display: inline-block;
+        font-weight: 300;
+        border-bottom: 1px solid transparent;
+        transition: border-bottom 0.3s;
+      }
+    }
+  }
+}

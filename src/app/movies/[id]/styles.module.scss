@@ -1,0 +1,18 @@
+.warpper {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 2rem;
+}
+.grid_actior {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+  img {
+    border-radius: 4px;
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.2),
+      0 0.3rem 0.3rem rgba(0, 0, 0, 0.2), 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2),
+      0 0.7rem 0.7rem rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+  }
+}
