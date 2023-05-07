@@ -4,6 +4,7 @@ import useQueryHook from "@/hooks/useQueryHook";
 import React, { useEffect } from "react";
 import MovieSlider from "@/components/MovieSlider";
 import Card from "@/components/Card";
+import {useRouter , useSearchParams , usePathname} from "next/navigation";
 
 import Pagination from "@mui/material/Pagination";
 import Skeleton from "@mui/material/Skeleton";
@@ -11,7 +12,10 @@ import Container from "@/components/Container";
 import classes from "./page-style.module.scss";
 
 export default function Home() {
-  const [page, setPage] = React.useState<number>(1);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const [page, setPage] = React.useState<string>(searchParams.get("page") || "1");
 
   const { data, isLoading, isFetching, error, refetch } = useQueryHook(
     `/movie-list?page=${page}&items=20`
@@ -28,7 +32,10 @@ export default function Home() {
     event: React.ChangeEvent<unknown>,
     page: number
   ) => {
-    setPage(page);
+    setPage(`${page}`);
+    router.push(
+      pathname + `?page=${page}&items=20`
+    );
   };
 
   return (
@@ -37,7 +44,6 @@ export default function Home() {
         <div style={{ marginBottom: "100px" }}>
           <MovieSlider />
         </div>
-        {/* <Loading/> */}
         {isLoading ? (
           <>
             <div className={classes.grid}>
@@ -68,7 +74,7 @@ export default function Home() {
                 shape="rounded"
                 color="primary"
                 count={total}
-                page={page}
+                page={+page}
                 onChange={handleChangeRowsPerPage}
               />
             </div>

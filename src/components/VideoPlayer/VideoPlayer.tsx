@@ -129,7 +129,7 @@ function openFullscreen(elem:any) {
               )}
             </button>
           </div>
-          <Box sx={{ width: "350px", mr: 1 }}>
+          <Box sx={{ width: "350px", m: 1 }}>
             <LinearProgress
               variant="determinate"
               value={playerState.progress}
