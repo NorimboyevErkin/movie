@@ -1,10 +1,9 @@
 "use client";
 import Container from "@/components/Container";
 import MoviesInfo from "@/components/MoviesInfo";
+import VideoPlayer from "@/components/VideoPlayer";
 import useQueryHook from "@/hooks/useQueryHook";
 import Skeleton from "@mui/material/Skeleton";
-import Image from "next/image";
-import { CardListTypeId } from "@/types/general";
 
 import classes from "./styles.module.scss";
 
@@ -14,7 +13,6 @@ function MovieId({ params, searchParams }: any) {
   );
 
   const list = data?.data?.data || [];
-  console.log(list, "ga");
 
   return (
     <main>
@@ -42,8 +40,8 @@ function MovieId({ params, searchParams }: any) {
             </div>
 
             <div className={classes.grid_actior}>
-              {[1,2,3,4,5].map((item: any) => (
-                  <Skeleton
+              {[1, 2, 3, 4, 5].map((item: any) => (
+                <Skeleton
                   key={item}
                   animation="wave"
                   height={128}
@@ -55,10 +53,11 @@ function MovieId({ params, searchParams }: any) {
           </>
         ) : (
           <>
+            <VideoPlayer/>
             <MoviesInfo item={list} />
             <div className={classes.grid_actior}>
               {list.actors.map((item: any) => (
-                <img
+                item.photo && <img
                   key={item?.id}
                   src={item?.photo}
                   alt={item?.fullName}

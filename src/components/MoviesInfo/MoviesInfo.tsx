@@ -10,7 +10,7 @@ function MoviesInfo({ item }: MoviesInfoProps) {
   return (
     <div className={classes.movie_info}>
       <div className={classes.movie_info__left}>
-        <Image src={item.poster} width={255} height={382} alt="poster" />
+        <Image src={item.poster} width={255} height={362} alt="poster" />
       </div>
       <div className={classes.movie_info__right}>
         <div className={classes.description}>
@@ -29,14 +29,14 @@ function MoviesInfo({ item }: MoviesInfoProps) {
           </div>
           <div style={{ marginBottom: ".5rem" }}>
             <span className={classes.item_key}>Страна:</span>
-            {item.countries?.map((item) => (
-              <span className={classes.item_value}>{item.title}</span>
+            {item.countries?.map((item , key) => (
+              <span className={classes.item_value} key={key}>{item.title}</span>
             ))}
           </div>
           <div style={{ marginBottom: ".5rem" }}>
             <span className={classes.item_key}>Жанр:</span>
-            {item.genres?.map((item) => (
-              <span className={classes.item_value}>{item.title}</span>
+            {item.genres?.map((item , key) => (
+              <span className={classes.item_value} key={key}>{item.title}</span>
             ))}
           </div>
           <div style={{ marginBottom: ".5rem" }}>
@@ -44,11 +44,11 @@ function MoviesInfo({ item }: MoviesInfoProps) {
           </div>
 
           <div style={{ marginBottom: ".5rem" }}>
-            {item.people?.map((item) => (
-              <div style={{ marginBottom: ".5rem" }}>
+            {item.people?.map((item , key) => (
+              <div style={{ marginBottom: ".5rem" }} key={key}>
                 <span className={classes.item_key}>{item.post}:</span>
-                {item.employees?.map((item) => (
-                  <span className={classes.item_value}>{item.fullName}</span>
+                {item.employees?.map((item , index) => (
+                  <span className={classes.item_value} key={`${key}-${index}`}>{item.fullName}</span>
                 ))}
               </div>
             ))}
