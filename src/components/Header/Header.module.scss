@@ -21,6 +21,10 @@
       max-width: 1340px;
       margin: 0 auto;
       @include flexCenter();
+
+      @media (max-width: 500px) {
+        flex-direction: column;
+      }
     }
     .HeaderLeftBox {
       @include flexCenter();
